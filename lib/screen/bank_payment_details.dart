@@ -6,6 +6,7 @@ import '../model/banking_model.dart';
 import '../utils/banking_colors.dart';
 import '../utils/banking_constants.dart';
 import '../utils/banking_data_generator.dart';
+import 'bank_pay_invoice.dart';
 import 'bank_payment_history.dart';
 
 // ignore: must_be_immutable

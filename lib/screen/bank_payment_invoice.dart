@@ -6,6 +6,7 @@ import '../utils/banking_colors.dart';
 import '../utils/banking_constants.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'bank_invoice_detail.dart';
 
 class BankingPaymentInvoice extends StatefulWidget {
   static var tag = "/BankingPaymentInvoice";
