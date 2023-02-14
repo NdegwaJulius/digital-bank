@@ -1,6 +1,8 @@
 import 'package:nb_utils/nb_utils.dart';
 
 import '../model/banking_model.dart';
+import 'banking_colors.dart';
+import 'banking_images.dart';
 
 List<BankingShareInfoModel> bankingInfoList() {
   List<BankingShareInfoModel> list = [];
