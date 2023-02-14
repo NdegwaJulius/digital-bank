@@ -5,6 +5,7 @@ import '../utils/banking_colors.dart';
 import '../utils/banking_images.dart';
 import '../utils/banking_strings.dart';
 import '../utils/bottom_navigation_bar.dart';
+import 'bank_menu.dart';
 import 'banking_home1.dart';
 import 'banking_payment.dart';
 import 'banking_saving.dart';

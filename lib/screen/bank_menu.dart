@@ -8,8 +8,10 @@ import '../utils/banking_constants.dart';
 import '../utils/banking_images.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'bank_locations.dart';
 import 'bank_news.dart';
 import 'bank_password_change.dart';
+import 'bank_rate_info.dart';
 
 class BankingMenu extends StatefulWidget {
   static var tag = "/BankingMenu";
