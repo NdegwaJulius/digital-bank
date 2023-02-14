@@ -7,6 +7,7 @@ import '../utils/banking_colors.dart';
 import '../utils/banking_constants.dart';
 import '../utils/banking_data_generator.dart';
 import '../utils/banking_strings.dart';
+import 'bank_payment_details.dart';
 
 class BankingPayment extends StatefulWidget {
   @override
