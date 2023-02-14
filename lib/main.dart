@@ -4,6 +4,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 import 'store/AppStore.dart';
 import 'utils/banking_constants.dart';
+import 'utils/banking_data_generator.dart';
 import 'utils/banking_strings.dart';
 
 AppStore appStore = AppStore();
