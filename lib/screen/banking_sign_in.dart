@@ -6,6 +6,8 @@ import '../utils/banking_colors.dart';
 import '../utils/banking_images.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'banking_dashboard.dart';
+import 'forgot_password.dart';
 
 class BankingSignIn extends StatefulWidget {
   static var tag = "/BankingSignIn";
