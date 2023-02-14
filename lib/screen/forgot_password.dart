@@ -1,11 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../main.dart';
 import '../utils/banking_colors.dart';
+import '../utils/banking_constants.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'banking_resend.dart';
 
 class BankingForgotPassword extends StatefulWidget {
   @override
