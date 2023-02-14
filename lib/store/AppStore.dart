@@ -1,9 +1,9 @@
-import 'package:digital_bank/utils/cons';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../utils/banking_colors.dart';
+import '../utils/banking_constants.dart';
 
 part 'AppStore.g.dart';
 
