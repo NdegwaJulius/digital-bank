@@ -6,6 +6,7 @@ import 'package:nb_utils/nb_utils.dart';
 import '../utils/banking_colors.dart';
 import '../utils/banking_constants.dart';
 import '../utils/banking_strings.dart';
+import 'banking_walk_through.dart';
 
 class BankingSplash extends StatefulWidget {
   static String tag = '/BankingSplash';

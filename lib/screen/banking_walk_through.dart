@@ -8,6 +8,7 @@ import '../utils/banking_constants.dart';
 import '../utils/banking_images.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'banking_sign_in.dart';
 
 class BankingWalkThrough extends StatefulWidget {
   @override
