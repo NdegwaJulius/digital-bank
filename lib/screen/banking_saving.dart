@@ -7,6 +7,7 @@ import '../utils/banking_colors.dart';
 import '../utils/banking_data_generator.dart';
 import '../utils/banking_images.dart';
 import '../utils/banking_strings.dart';
+import 'banking_add_new_saving.dart';
 
 class BankingSaving extends StatefulWidget {
   static var tag = "/BankingSaving";
