@@ -8,6 +8,7 @@ import '../utils/banking_images.dart';
 import '../utils/banking_slider.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
+import 'banking_transfer_successful.dart';
 
 class BankingTransfer extends StatefulWidget {
   @override
