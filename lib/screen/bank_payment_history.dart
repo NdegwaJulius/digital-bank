@@ -1,75 +1,158 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../model/banking_model.dart';
 import '../utils/banking_colors.dart';
+import '../utils/banking_constants.dart';
+import '../utils/banking_data_generator.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
-import 'bank_payment_invoice.dart';
 
-class BankingPayInvoice extends StatefulWidget {
+class BankingPaymentHistory extends StatefulWidget {
+  static var tag = "/BankingPaymentHistory";
+
   @override
-  _BankingPayInvoiceState createState() => _BankingPayInvoiceState();
+  _BankingPaymentHistoryState createState() => _BankingPaymentHistoryState();
 }
 
-class _BankingPayInvoiceState extends State<BankingPayInvoice> {
+class _BankingPaymentHistoryState extends State<BankingPaymentHistory> {
+  late List<BankingPaymentHistoryModel> mList1;
+
+  @override
+  void initState() {
+    super.initState();
+    mList1 = bankingHistoryList1();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  30.height,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(
-                        Icons.chevron_left,
-                        size: 30,
-                        color:
-                            appStore.isDarkModeOn ? white : Banking_blackColor,
-                      ).onTap(
-                        () {
-                          finish(context);
-                        },
-                      ),
-                      20.height,
-                      Text(Banking_lbl_Pay_Voice,
-                          style: boldTextStyle(size: 30)),
-                    ],
-                  ),
-                  10.height,
-                  Text('Choose Provider', style: secondaryTextStyle()),
-                  20.height,
-                  Row(
-                    children: <Widget>[
-                      Text('Transfer Via', style: primaryTextStyle()).expand(),
-                      Icon(Icons.keyboard_arrow_right,
-                          size: 30, color: Banking_greyColor),
-                    ],
-                  ),
-                  Divider(height: 24),
-                  EditText(
-                      text: Banking_lbl_Invitation_code, isPassword: false),
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: spacing_standard_new,
+            ),
+            headerView(Banking_lbl_Payment_History, width * 0.4, context),
+            Text("22 Feb 2021", style: secondaryTextStyle()).paddingOnly(
+              left: spacing_standard_new,
+              top: spacing_standard_new,
+            ),
+            Divider().paddingOnly(
+                left: spacing_standard_new, right: spacing_standard_new),
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: mList1.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+                onTap: () {
+                  setState(() {});
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.account_balance_wallet,
+                      size: 30,
+                      color: Banking_Primary,
+                    ).paddingOnly(left: spacing_standard),
+                    Text(mList1[index].title!, style: primaryTextStyle())
+                        .paddingSymmetric(horizontal: 8)
+                        .expand(),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        mList1[index].rs!,
+                        style: primaryTextStyle(
+                            color: Banking_TextColorOrange, size: 16),
+                      ).paddingOnly(
+                          left: spacing_standard, right: spacing_standard),
+                    )
+                  ],
+                ).paddingAll(spacing_standard),
               ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BankingButton(
-              textContent: Banking_lbl_Next,
-              onPressed: () {
-                BankingPaymentInvoice().launch(context);
-              },
-            ),
-          ).paddingOnly(bottom: 20, right: 10, left: 10),
-        ],
+            ).paddingOnly(bottom: 8),
+            Text("22 Mar 2021", style: secondaryTextStyle())
+                .paddingSymmetric(horizontal: 8),
+            Divider().paddingOnly(
+                left: spacing_standard_new, right: spacing_standard_new),
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: mList1.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+                onTap: () {
+                  setState(() {});
+                },
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.account_balance_wallet,
+                      size: 30,
+                      color: Banking_Primary,
+                    ).paddingOnly(left: spacing_standard),
+                    Text(mList1[index].title!, style: primaryTextStyle())
+                        .paddingSymmetric(horizontal: 8)
+                        .expand(),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        mList1[index].rs!,
+                        style: primaryTextStyle(
+                            color: Banking_TextColorOrange, size: 16),
+                      ).paddingOnly(
+                          left: spacing_standard, right: spacing_standard),
+                    )
+                  ],
+                ).paddingAll(spacing_standard),
+              ),
+            ).paddingOnly(bottom: 8),
+            Text(
+              "22 Apr 2021",
+              style: secondaryTextStyle(),
+            ).paddingOnly(
+                left: spacing_standard_new, top: spacing_standard_new),
+            Divider().paddingOnly(
+                left: spacing_standard_new, right: spacing_standard_new),
+            ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: mList1.length,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+                onTap: () {
+                  setState(() {});
+                },
+                child: Container(
+                    child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.account_balance_wallet,
+                      size: 30,
+                      color: Banking_Primary,
+                    ).paddingOnly(left: spacing_standard),
+                    Text(
+                      mList1[index].title!,
+                      style: primaryTextStyle(size: 16),
+                    ).paddingSymmetric(horizontal: 8).expand(),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        mList1[index].rs!,
+                        style: primaryTextStyle(
+                            color: Banking_TextColorOrange, size: 16),
+                      ).paddingOnly(
+                          left: spacing_standard, right: spacing_standard),
+                    )
+                  ],
+                ).paddingAll(spacing_standard)),
+              ),
+            ).paddingOnly(bottom: 8)
+          ],
+        ),
       ),
     );
   }
