@@ -1,74 +1,148 @@
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-import '../main.dart';
+import '../model/banking_model.dart';
 import '../utils/banking_colors.dart';
+import '../utils/banking_constants.dart';
 import '../utils/banking_strings.dart';
 import '../utils/banking_widget.dart';
 
-class BankingPayInvoice extends StatefulWidget {
+class BankingPaymentInvoice extends StatefulWidget {
+  static var tag = "/BankingPaymentInvoice";
+
   @override
-  _BankingPayInvoiceState createState() => _BankingPayInvoiceState();
+  _BankingPaymentInvoiceState createState() => _BankingPaymentInvoiceState();
 }
 
-class _BankingPayInvoiceState extends State<BankingPayInvoice> {
+class _BankingPaymentInvoiceState extends State<BankingPaymentInvoice> {
+  var currentIndexPage = 0;
+  List<BankingCardModel>? mList;
+
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  30.height,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Icon(
-                        Icons.chevron_left,
-                        size: 30,
-                        color:
-                            appStore.isDarkModeOn ? white : Banking_blackColor,
-                      ).onTap(
-                        () {
-                          finish(context);
-                        },
-                      ),
-                      20.height,
-                      Text(Banking_lbl_Pay_Voice,
-                          style: boldTextStyle(size: 30)),
-                    ],
-                  ),
-                  10.height,
-                  Text('Choose Provider', style: secondaryTextStyle()),
-                  20.height,
-                  Row(
-                    children: <Widget>[
-                      Text('Transfer Via', style: primaryTextStyle()).expand(),
-                      Icon(Icons.keyboard_arrow_right,
-                          size: 30, color: Banking_greyColor),
-                    ],
-                  ),
-                  Divider(height: 24),
-                  EditText(
-                      text: Banking_lbl_Invitation_code, isPassword: false),
-                ],
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            16.height,
+            headerView(Banking_lbl_Payment_Invoice, width * 0.4, context),
+            16.height,
+            Text("Invoice Feb 2020", style: secondaryTextStyle())
+                .paddingSymmetric(horizontal: spacing_standard_new),
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Name",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("John Smith", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: BankingButton(
-              textContent: Banking_lbl_Next,
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Address",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("874 Cameron Road,NY,US", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Code",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("#7783", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("TimeService",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("25 Jan - 25 Feb", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Amount Transaction",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("\$200", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text("Status",
+                        style: primaryTextStyle(
+                            color: Banking_TextColorSecondary)),
+                    Text("Payment Successful", style: primaryTextStyle()),
+                  ],
+                ).paddingSymmetric(
+                    horizontal: spacing_standard_new,
+                    vertical: spacing_standard),
+                Divider().paddingOnly(
+                    left: spacing_standard, right: spacing_standard)
+              ],
+            ),
+            16.height,
+            BankingButton(
+              textContent: Banking_lbl_Confirm,
               onPressed: () {
-                BankingPaymentInvoice().launch(context);
+                BankingInvoiceDetail().launch(context);
               },
-            ),
-          ).paddingOnly(bottom: 20, right: 10, left: 10),
-        ],
+            ).paddingAll(spacing_standard_new),
+          ],
+        ),
       ),
     );
   }
