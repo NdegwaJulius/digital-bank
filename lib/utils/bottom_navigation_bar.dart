@@ -5,7 +5,7 @@
 import 'dart:collection' show Queue;
 import 'dart:math' as math;
 
-import 'package:banking_prokit/utils/BankingColors.dart';
+import 'package:digital_bank/utils/banking_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vector_math/vector_math_64.dart' show Vector3;
